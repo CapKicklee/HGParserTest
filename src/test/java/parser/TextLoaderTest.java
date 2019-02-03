@@ -87,8 +87,8 @@ public class TextLoaderTest {
 		
 		Report report = null;
 		report = textLoader.parseFile(buffReader);
-		assertEquals("Le rapport devrait ne contenir aucune erreur", 0, report.getErrors().size());
-		assertEquals("La liste des références devrait contenir 5 lignes", 5, report.getReferences().size());
+		assertEquals("Le rapport devrait ne contenir qu'une erreur de code couleur", 1, report.getErrors().size());
+		assertEquals("La liste des références devrait contenir 4 lignes", 4, report.getReferences().size());
 		assertEquals("Le nom du fichier devrait être 'example.txt'", "example.txt", report.getInputFile());
 	}
 	
@@ -99,8 +99,8 @@ public class TextLoaderTest {
 		
 		Report report = null;
 		report = textLoader.parseFile(buffReader);
-		assertEquals("Le rapport devrait ne contenir aucune erreur", 3, report.getErrors().size());
-		assertEquals("La liste des références devrait contenir 2 lignes", 2, report.getReferences().size());
+		assertEquals("Le rapport devrait contenir 4 erreurs", 4, report.getErrors().size());
+		assertEquals("La liste des références devrait contenir 1 ligne", 1, report.getReferences().size());
 		assertEquals("Le nom du fichier devrait être 'exampleErrors.txt'", "exampleErrors.txt", report.getInputFile());
 	}
 
